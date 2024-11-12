@@ -25,11 +25,15 @@
 
 <style scoped lang="scss">
 main {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   background-image: url('@/assets/home/background-home-mobile.jpg');
   background-size: cover;
-  background-position:center;
+  background-position: center center;
   background-repeat: no-repeat;
-  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .intro {
@@ -70,7 +74,7 @@ main {
   align-items: center;
   height: 130px;
   &__explore {
-  position: relative; /* Nécessaire pour positionner le pseudo-élément */
+  position: relative;
   background-color: var(--vt-c-white);
   height: 144px;
   width: 144px;
@@ -80,48 +84,75 @@ main {
   font-size: 1.1rem;
   cursor: pointer;
   z-index: 10;
+  color: var(--vt-c-black);
 
-  /* Pseudo-élément pour le cercle */
   &::after {
-    content: ''; /* Nécessaire pour générer le pseudo-élément */
+    content: '';
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 220%; /* Le cercle est plus grand que le bouton */
-    height: 220%; /* Le cercle est plus grand que le bouton */
-    background-color: #FFFFFF; /* Couleur explicite du cercle */
-    border-radius: 50%; /* Cercle parfait */
-    transform: translate(-50%, -50%); /* Centrer le cercle */
-    opacity: 0; /* Le cercle est invisible au départ */
-    z-index: 1; /* Le cercle est derrière le texte du bouton */
-    transition: opacity 0.4s ease; /* Simple fondu */
+    width: 220%;
+    height: 220%;
+    background-color: #FFFFFF;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    z-index: 1;
+    transition: opacity 0.4s ease;
   }
 
-  /* Effet hover sur le bouton uniquement */
+  &:hover {
+      color: var(--vt-c-text-light-2);
+    }
+
   &:hover::after {
-    opacity: 0.1; /* Le cercle devient visible */
+    opacity: 0.1;
   }
 }
 }
 
+/* TABLET */
+@media (min-width: 768px) {
+  main {
+  background-image: url('@/assets/home/background-home-tablet.jpg');
+}
 
+.intro {
+  justify-content: end;
+  height: 570px;
+  row-gap: 0;
 
+  &__first-text {
+    font-size: 1.75rem;
+  }
 
+  &__title {
+    font-size: 4.5rem;
+  }
 
+  &__second-text {
+    padding: 0 110px;
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+}
 
+.btn {
+  height: 440px;
+  &__explore {
+  height: 272px;
+  width: 272px;
+  font-size: 2rem;
 
+  &::after {
+    width: 188%;
+    height: 188%;
+  }
 
+  &:hover::after {
+    opacity: 0.1;
+  }
+ }
+}
+}
 </style>
-
-
-
-
-
-
-<!-- <style lang="scss" module src="../styles/HomeView.module.scss"></style> -->
-
-<!--
-300px - 600px
-600px - 1024
-1024 - < 
--->
