@@ -15,11 +15,12 @@
       </div>
     </header>
     <section class="btn">
-      <button class="btn__explore">
-      <p>EXPLORE</p>
-    </button>
+      <router-link to="/destination">
+        <button class="btn__explore">
+          <p>EXPLORE</p>
+        </button>
+      </router-link>
     </section>
-
   </main>
 </template>
 
@@ -32,9 +33,10 @@ main {
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  height: 100vh;
+  min-height: 100vh;
   overflow: hidden;
 }
+
 
 .intro {
   display: flex;
@@ -151,6 +153,41 @@ main {
 
   &:hover::after {
     opacity: 0.1;
+  }
+ }
+}
+}
+
+/* DESKTOP */
+@media (min-width: 1440px) {
+  main {
+  background-image: url('@/assets/home/background-home-desktop.jpg');
+  flex-direction: row;
+  align-items: end;
+  justify-content: space-around;
+}
+
+.intro {
+  height: 100%;
+  width: 35%;
+  align-items: flex-start;
+  margin-bottom: 130px;
+  &__second-text {
+    padding: 0 10px 0 0;
+    text-align: left;
+  }
+}
+
+.btn {
+  height: 70%;
+  &__explore {
+  height: 272px;
+  width: 272px;
+  font-size: 2rem;
+  margin-bottom: 150px;
+  &::after {
+    width: 170%;
+    height: 170%;
   }
  }
 }
