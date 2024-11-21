@@ -21,8 +21,6 @@ onMounted(async () => {
   // Ajouter un cast pour dire à TypeScript que chaque image a une propriété `default`
   const typedImages = images as Record<string, { default: string }>;
 
-  console.log('Images:', typedImages); // Vérification des images
-
   // Mettre à jour les destinations avec les images résolues
   destinations.value = destinations.value.map(destination => ({
     ...destination,
@@ -111,14 +109,14 @@ main {
     letter-spacing: 2px;
   }
   &__dest-number {
-    margin-right: 30px;
+    margin-right: 20px;
     color: var(--vt-c-text-dark-2);
     font-weight: 400;
   }
   &__img {
     display: flex;
     justify-content: center;
-    margin: 40px 0;
+    margin: 30px 0;
     img {
       width: 40%;
     }
@@ -168,13 +166,18 @@ main {
     justify-content: center;
     font-family: 'Bellefair';
     font-size: 3.5rem;
-    height: 100px;
+    height: 95px;
   }
   &__description {
-    padding: 0 25px;
+    padding: 0 35px;
     text-align: center;
     color: var(--vt-c-white-blue);
-    height: 150px;
+    height: 120px;
+    width: 100%;
+    font-size: 0.9rem;
+    overflow: scroll;
+    scrollbar-color: transparent transparent;
+    scrollbar-width: thin;
   }
   &__details {
     display: flex;
@@ -183,13 +186,19 @@ main {
     flex-direction: column;
     text-align: center;
     width: 100%;
-    height: 140px;
+    height: 100%;
     &__line {
       display: flex;
       justify-content: center;
       width: 85%;
       height: 1px;
       background-color: rgba(255, 255, 255, 0.2);
+      margin: 15px 0;
+    }
+    &__data {
+      &__dist, &__travel {
+        margin-bottom: 8px;
+      }
     }
     h4 {
       color: var(--vt-c-white-blue);
@@ -201,6 +210,15 @@ main {
     }
   }
   }
+
+  /* LARGE MOBILE */
+@media (min-width: 500px) {
+.infos {
+  &__description {
+    height: 75px;
+  }
+}
+}
 
 /* TABLET */
 @media (min-width: 768px) {
@@ -222,9 +240,9 @@ main {
     margin-right: 25px;
   }
   &__img {
-    margin: 60px 0;
+    margin: 50px 0;
     img {
-      width: 65%;
+      width: 60%;
     }
   }
 }
@@ -237,18 +255,20 @@ main {
     }
   
   &__name {
-    font-size: 5rem;
-    height: 130px;
+    font-size: 4.5rem;
+    height: 110px;
   }
   &__description {
-    padding: 0 100px;
-    height: 120px;
+    padding: 0 143px;
+    height: 100px;
+    font-size: 1rem;
   }
   &__details {
-    height: 85px;
-    margin-bottom: 40px;
+    height: 100px;
+    margin: 0;
     &__line {
       width: 75%;
+      margin: 0;
     }
     &__data {
       display: flex;
@@ -257,9 +277,11 @@ main {
       width: 55%;
       &__dist {
         width: 138px;
+        margin: 0;
       }
       &__travel {
         width: 129px;
+        margin: 0;
       }
     }
   }
@@ -275,16 +297,16 @@ main {
 }
 
 .planet {
-  margin-top: 30px;
+  margin-top: 80px;
   width: 50%;
   height: 100%;
   &__dest {
-    padding-left: 20%;
+    padding-left: 25%;
     font-size: 1.75rem;
     letter-spacing: 4px;
   }
   &__img {
-    margin: 110px 0 0 0;
+    margin: 88px 0 0 0;
     padding-left: 25%;
     img {
       width: 480px;
@@ -294,8 +316,8 @@ main {
 .infos {
   width: 36%;
   align-items: start;
-  padding-left: 60px;
-  margin-top: 15%;
+  padding-left: 100px;
+  margin-top: 13%;
   &__choice {
     margin: 0 0 10px 0;
     &__tabs {
@@ -308,10 +330,12 @@ main {
     height: 160px;
   }
   &__description {
-    padding: 0 20px 0 0;
+    padding: 0;
     margin-bottom: 15px;
     text-align: left;
-    height: 150px;
+    height: 130px;
+    max-width: 450px;
+    font-size: 1.1rem;
   }
   &__details {
     height: 100%;

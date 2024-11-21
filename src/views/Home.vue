@@ -129,7 +129,7 @@ main {
   }
 
   &__title {
-    font-size: 4.5rem;
+    font-size: 4.2rem;
   }
 
   &__second-text {
@@ -140,15 +140,15 @@ main {
 }
 
 .btn {
-  height: 440px;
+  height: 380px;
   &__explore {
   height: 272px;
   width: 272px;
   font-size: 2rem;
 
   &::after {
-    width: 188%;
-    height: 188%;
+    width: 163%;
+    height: 163%;
   }
 
   &:hover::after {
