@@ -127,12 +127,37 @@ main {
       width: 100%;
       justify-content: center;
       gap: 18px;
+
       button {
+        position: relative;
         width: 12px;
         height: 12px;
         border-radius: 50%;
         border: none;
         cursor: pointer;
+        background-color: var(--vt-c-divider-dark-1);
+        z-index: 2;
+
+        &::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          background-color: var(--highlight-color, rgba(255, 255, 255, 0.5));
+          opacity: 0;
+          transition: opacity 0.3s ease-in-out;
+        }
+
+        &:hover::after {
+          opacity: 0.7;
+        }
+        &.active::after {
+          opacity: 1;
+          background-color: var(--active-color, var(--vt-c-white));
+        }
       }
     }
   }
